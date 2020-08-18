@@ -18,8 +18,8 @@ bin-release/
 # information for Eclipse / Flash Builder.
 data
 bk
-model/punc_model/*
-model/seg_model/*
+model/punc_model/.*
+model/seg_model/.*
 res
 __pycache__
 .idea
