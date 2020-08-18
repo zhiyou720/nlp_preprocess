@@ -6,3 +6,8 @@
 接口 process_main.py
 
 详见 test.py
+
+依赖模型：
+
+/研发知识库/后端/算法库 
+存放在 `model` 文件夹下

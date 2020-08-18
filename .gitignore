@@ -20,6 +20,7 @@ data
 bk
 model/punc_model/.*
 model/seg_model/.*
+model/nlp_preprocess_model.zip
 res
 __pycache__
 .idea
