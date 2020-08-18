@@ -1,0 +1,115 @@
+INFO:pytorch_transformers.modeling_utils:loading configuration file model/seg_model\config.json
+INFO:pytorch_transformers.modeling_utils:Model config {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "directionality": "bidi",
+  "finetuning_task": "ner",
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "num_labels": 7,
+  "output_attentions": false,
+  "output_hidden_states": false,
+  "pad_token_id": 0,
+  "pooler_fc_size": 768,
+  "pooler_num_attention_heads": 12,
+  "pooler_num_fc_layers": 3,
+  "pooler_size_per_head": 128,
+  "pooler_type": "first_token_transform",
+  "pruned_heads": {},
+  "torchscript": false,
+  "type_vocab_size": 2,
+  "vocab_size": 119547
+}
+
+INFO:pytorch_transformers.modeling_utils:loading weights file model/seg_model\pytorch_model.bin
+INFO:pytorch_transformers.tokenization_utils:Model name 'model/seg_model' not found in model shortcut name list (bert-base-uncased, bert-large-uncased, bert-base-cased, bert-large-cased, bert-base-multilingual-uncased, bert-base-multilingual-cased, bert-base-chinese, bert-base-german-cased, bert-large-uncased-whole-word-masking, bert-large-cased-whole-word-masking, bert-large-uncased-whole-word-masking-finetuned-squad, bert-large-cased-whole-word-masking-finetuned-squad, bert-base-cased-finetuned-mrpc). Assuming 'model/seg_model' is a path or url to a directory containing tokenizer files.
+INFO:pytorch_transformers.tokenization_utils:loading file model/seg_model\vocab.txt
+INFO:pytorch_transformers.tokenization_utils:loading file model/seg_model\added_tokens.json
+INFO:pytorch_transformers.tokenization_utils:loading file model/seg_model\special_tokens_map.json
+INFO:pytorch_transformers.tokenization_utils:loading file model/seg_model\tokenizer_config.json
+INFO:pytorch_transformers.modeling_utils:loading configuration file model/punc_model\config.json
+INFO:pytorch_transformers.modeling_utils:Model config {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "directionality": "bidi",
+  "finetuning_task": "ner",
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "num_labels": 59,
+  "output_attentions": false,
+  "output_hidden_states": false,
+  "pad_token_id": 0,
+  "pooler_fc_size": 768,
+  "pooler_num_attention_heads": 12,
+  "pooler_num_fc_layers": 3,
+  "pooler_size_per_head": 128,
+  "pooler_type": "first_token_transform",
+  "pruned_heads": {},
+  "torchscript": false,
+  "type_vocab_size": 2,
+  "vocab_size": 119547
+}
+
+INFO:pytorch_transformers.modeling_utils:loading weights file model/punc_model\pytorch_model.bin
+INFO:pytorch_transformers.tokenization_utils:Model name 'model/punc_model' not found in model shortcut name list (bert-base-uncased, bert-large-uncased, bert-base-cased, bert-large-cased, bert-base-multilingual-uncased, bert-base-multilingual-cased, bert-base-chinese, bert-base-german-cased, bert-large-uncased-whole-word-masking, bert-large-cased-whole-word-masking, bert-large-uncased-whole-word-masking-finetuned-squad, bert-large-cased-whole-word-masking-finetuned-squad, bert-base-cased-finetuned-mrpc). Assuming 'model/punc_model' is a path or url to a directory containing tokenizer files.
+INFO:pytorch_transformers.tokenization_utils:loading file model/punc_model\vocab.txt
+INFO:pytorch_transformers.tokenization_utils:loading file model/punc_model\added_tokens.json
+INFO:pytorch_transformers.tokenization_utils:loading file model/punc_model\special_tokens_map.json
+INFO:pytorch_transformers.tokenization_utils:loading file model/punc_model\tokenizer_config.json
+INFO:root:Process HTML data Done!
+INFO:root:对于罗杰克劳利和他的“地中海史诗三部曲”,早知大名,如今终于读罢,感觉酣畅淋漓,克劳利让人激赏的不光是他的历史学识沉淀,更有精湛的文笔,当然,也要感谢译者的漂亮翻译,让这种文笔气质得以在中文版重现。从君士坦丁堡陷落到地中海海洋混战,一直到威尼斯海洋霸权的史诗,其实这三本书的角度和视角并不一致,但是总有一种主题和精神气质贯穿始终,基督文明和伊斯兰文明在地中海的碰撞,献上了交织着血与泪的史诗。
+INFO:root:尽管下笔聚焦点力度不同,但是克劳利的视角一直从时间到空间上站得高,看的广,哪怕这个系列中聚焦点最为集中的《1453:君士坦丁堡之战》。围绕这次战役,克劳利做了足够的铺垫,从君士坦丁堡的历次危局,到双方皇帝的背景与性格、气质,还有基督世界的分裂,技术进步对战争的改变,克劳利给予了大信息流,但是又逻辑缜密顺畅的衔接。克劳利对战争进程的描写是其文笔技法中,我个人感觉最为出色的,从格局切换的应对自如,到战争细节的聚焦描写,都很有代入感。在他的文字组织下,你既能感觉战争中英雄主义的光辉,又能体会到个体在战争中挣扎的血泪,比如对一次次攻城战,从双方对垒、兵器使用、战斗细节都场面感十足,从大局到细节构成了一种战争史诗的效果。
+INFO:root:事实上,攻城战在克劳利的三部曲中,写了太多场,整套书,由于整体处于伊斯兰势力进攻,欧洲人防守的局面,所以整个氛围常常是一群欧洲人,孤独抵抗强大的攻城军队的悲壮故事。通常,在第三方看来,守城一方容易得到更多同情,毕竟他们是在守卫家园,抵御入侵,而且通常处于一种实力不对等的战争中,所以悲剧感也是扑面而来。而且,克劳利也特别注意将视角从激烈的攻城战现场,转移到基督文明的其它地域,往往,这里的故事更加凸显守城军民的悲剧性命运。我们看到面对强敌,基督文明世界整体上一盘散沙,内斗严重,在增援决策上效率低下,相互推诿,常常调子很高,却轻轻放下,这倒是与同样以信仰为名战斗,但是却整体形成高效战争机器的伊斯兰势力形成鲜明对比。也正是这样的背景下,克劳利给了很多勇敢的,甚至自身前往被困城市的个体以更多笔墨,突出了这些人的英雄之举。
+INFO:root:但是,如果你认为克劳利站在西方视角,刻意强化这种悲壮就错了,克劳利对当时的伊斯兰文明世界给予了充分客观的描写,从他们的治理结构,到科学、商业、文化的成就。比如君士坦丁堡之战,土耳其苏丹默罕默德二世,在作者笔下就是一位年轻英武,谋断能力极强的君主。虽然他也时有暴虐之举,此后直到他死亡更是成为欧洲人的噩梦,但是在这场战役中,他体现的更是一种坚韧和果决,在战后,尽管也有城市惨遭洗劫的悲剧(克劳利也在书中承认,在攻城洗劫上,欧洲人与之相比也是半斤对八两),但是也是他及时制止,并将这座城市建设成为新的首都,继续其征伐之旅。而与他交战的君士坦丁十一世,一个史书上常常给予弱势刻画的人物,在本书中也有了更加生动的形象,在那个特别时期,他的勇气与勇敢,直到最后坚守到死的壮举,都无愧为一个皇帝的荣耀。
+INFO:root:当然,围绕地中海,主角还是海洋,正如君士坦丁堡被攻陷后,对欧洲人的震动象征意义大于经济意义,此后,大航海时代逐步开始,让君士坦丁堡从地缘政治上的地位变得这真的更具象征意义。而大航海时代的基础,正是地中海,这一文明交流与碰撞的“文明之湖”的长期航海历史所孕育。本系列的另外两部《海洋帝国》、《财富之城》更聚焦于海上的战斗,在《海洋帝国》中,伊斯兰世界的几位海盗显得残暴,但是其统治力令人印象深刻,而基督文明显得松散但充满韧性的抵抗和反击,也带来了几场悲壮的战役。而事实上,明知不可无而为之堪称悲壮,但当时的另一个现实却是基督文明下的一个个城市这样的“点”被攻击的时候,整个基督文明的各方势力却无法形成一个“面”去支持,让这些抗争置身于一种明知可为却不为的孤独大背景下,这,又让人感觉是一场悲剧。
+INFO:root:《财富之城》聚焦威尼斯共和国的历史,威尼斯共和国在地缘政治影响力上,从表面上,似乎有些后来的大不列颠王国、今天的美国的感觉,并不追求绝对的领土控制,而是以经济利益为纽带进行征伐、怀柔与治理。但是,正如历史上对威尼斯人的脸谱化的不佳刻画一样,威尼斯的扩张却少了很多软实力的同步跟进。第四次十字军东征可谓一个典型,作为威尼斯共和国扮演重要角色的东征,这是一次那个时期罕见的基督文明的强势进击,但是攻打的却是同是基督文明下的君士坦丁堡。那时的威尼斯执政官丹多洛,确实堪称传奇人物,但是其身上也体现了那个时候威尼斯对外政策的特点:势利。是的,不是“务实”,而是一种有时候到了见利忘义,目光短浅程度的“势利”,这种软实力的虚弱,也使得威尼斯共和国始终无法构筑强势的联盟,伴随着时代的变迁,也只能走向衰落。
+INFO:root:地中海史诗三部曲是一套可读性极强的历史读物,一种代入感极强,让你感觉可触摸的历史氛围营造之下,你可以体察那个时代的动荡与不安。曾经,两个文明殊死搏斗,仿佛必须有一方被征服,但是我们发现,尽管那个时代伊斯兰势力咄咄逼人,基督教艰难抵抗,但是地理上的格局似乎也就僵持在地中海周围,形成微妙的均衡。无疑,那是个让当时欧洲人容易感到绝望的时代,而今天,我们发现,尽管没有刀光剑影,相反,倒是很多流离失所的中东难民由地中海的涌入,以及欧洲穆斯林人口比例的增加引发了新的争议和对未来的不安。这种不安,在规模不一,但是明显更加频繁的发生于欧洲的恐怖袭击事件之下,显得更加真实。在此背景下,回顾曾经围绕地中海的那从文明冲突或许能给我们一些思考的养料,至少,那段岁月之后,欧洲没有完蛋,倒是在融合中进入了大航海时代,形成了欧洲国家的一个世界性扩张的强势周期。历史并不见得会重复,但是,我依然相信在不时发生的文明碰撞之中,伴随人类整体文明程度的提高,激烈程度会比以往降低,而在纠结与冲突中,新的平衡总会达到,而置身其中的人,在今天也将有更多理性思考和行动的空间。
+INFO:root:Process Seg and Punc data Done!
+INFO:root:对于罗杰·克劳利和他的《地中海史诗三部曲，早知大名，如今终于读罢，感觉酣畅淋漓。克劳利让人激赏的，不光是他的历史学识沉淀，更有精湛的文笔，当然也要感谢译者的漂亮翻译，让这种文笔气质得以在中文版重现。
+INFO:root:从《君士坦丁堡《陷落》到地中海海洋混战，一直到威尼斯海洋霸权的史诗，其实这三本书的角度和视角并不一致。但是总有一种主题和精神气质贯穿始终。基督文明和伊斯兰文明在地中海的碰撞，献上了交织着血与泪的史诗。
+INFO:root:尽管下笔聚焦点力度不同，但是克劳利的视角一直从时间到空间上站得高看的广。哪怕这个系列中聚焦点最为集中的1453君士坦丁堡之战。
+INFO:root:围绕这次战役，克劳利做了足够的铺垫，从君士坦丁堡的历次危局，到双方皇帝的背景与性格气质，还有基督世界的分裂、技术、进步对战争的改变。克劳利给予了大信息流，但是又逻辑缜密、顺畅的衔接。
+INFO:root:克劳利对战争进程的描写，是其文笔技法中我个人感觉最为出色的。从格局切换的应对自如，到战争细节的聚焦描写，都很有代入感。在他的文字组织下，你既能感觉战争中英雄主义的光辉，又能体会到个体在战争中挣扎的血泪。
+INFO:root:比如对一次次攻城战，从双方对垒兵器使用战斗细节，都场面感十足，从大局到细节，构成了一种战争史诗的效果。
+INFO:root:事实上，攻城战在克劳利的三部曲中写了太多场整套书。由于整体处于伊斯兰势力进攻欧洲人防守的局面，所以整个氛围常常是一群欧洲人孤独抵抗强大的攻城军队的悲壮故事。
+INFO:root:通常在第三方看来，守城一方容易得到更多同情，毕竟他们是在守卫家园，抵御入侵，而且通常处于一种实力不对等的战争中，所以悲剧感也是扑面而来。而且克劳利也特别注意，将视角从激烈的攻城战现场，转移到基督文明的其它地域。往往这里的故事更加凸显守城军民的悲剧性命运。
+INFO:root:我们看到，面对强敌基督，文明世界整体上一盘散沙内斗严重，在增援决策上效率低下相互推诿，常常调子很高，却轻轻放下。这倒是与同样以信仰为名战斗，但是却整体形成高效战争机器的伊斯兰势力形成鲜明对比。
+INFO:root:也正是这样的背景下，克劳利给了很多勇敢的，甚至自身前往被困城市的个体，以更多笔墨，突出了这些人的英雄之举。
+INFO:root:但是，如果你认为克劳利站在西方视角刻意强化这种悲壮，就错了，克劳利对当时的伊斯兰文明世界给予了充分客观的描写。
+INFO:root:从他们的治理结构到科学商业文化的成就，比如君士坦丁堡之战，土耳其苏丹默罕默德二世在作者笔下就是一位年轻英武谋断、能力极强的君主。虽然他也时有暴虐之举，此后直到他死亡，更是成为欧洲人的噩梦。但是在这场战役中，他体现的更是一种坚韧和果决。
+INFO:root:在战后，尽管也有城市惨遭洗劫的悲剧，克劳利也在书中承认，在攻城、洗劫上，欧洲人与之相比也是半斤对八两。
+INFO:root:但是，也是他及时制止并将这座城市建设成为新的首都，继续其征伐之旅。而与他交战的君士坦丁十一世，一个史书上常常给予弱势刻画的人物，在本书中也有了更加生动的形象。在那个特别时期，他的勇气与勇敢，直到最后坚守到死的壮举，都无愧为一个皇帝的荣耀。
+INFO:root:当然，围绕地中海主角还是海洋，正如君士坦丁堡被攻陷后对欧洲人的震动，象征意义大于经济意义。此后，大航海时代逐步开始，让君士坦丁堡从地缘政治上的地位变得这真的更具象征意义。
+INFO:root:而大航海时代的基础，正是地中海这一文明交流与碰撞的文明之湖的长期航海历史所孕育。
+INFO:root:本系列的另外两部海洋帝国《财富之城》更聚焦于海上的战斗。在海洋帝国中，伊斯兰世界的几位海盗显得残暴，但是其统治力令人印象深刻。
+INFO:root:而基督文明显得松散，但充满韧性的抵抗和反击，也带来了几场悲壮的战役，而事实上，明知不可，无而为之，堪称悲壮。
+INFO:root:但当时的另一个现实，却是基督文明下的一个个城市。这样的点被攻击的时候，整个基督文明的各方势力却无法形成一个面去支持。让这些抗争置身于一种明知可为却不为的孤独大背景下，这又让人感觉是一场悲剧：财富之城。
+INFO:root:聚焦威尼斯共和国的历史,威尼斯共和国在地缘政治影响力上，从表面上似乎有些后来的大不列颠王国。今天的美国的感觉，并不追求绝对的领土控制，而是以经济利益为纽带进行征伐、怀柔与治理。但是，正如历史上对威尼斯人的脸谱化的不佳刻画一样，威尼斯的扩张却少了很多软实力的同步跟进。
+INFO:root:第四次十字军东征，可谓一个典型。作为威尼斯共和国扮演重要角色的东征，这是一次那个时期罕见的基督文明的强势进击，但是攻打的却是同是基督文明下的君士坦丁堡。那时的威尼斯执政官丹多洛，确实堪称传奇人物，但是其身上也体现了那个时候威尼斯对外政策的特点。
+INFO:root:势利（是的，不是务实，而是一种有时候到了见利忘义目光短浅程度的势利。这种软实力的虚弱，也使得威尼斯共和国始终无法构筑强势的联盟，伴随着时代的变迁，也只能走向衰落。
+INFO:root:地中海史诗三部曲,是一套可读性极强的历史读物，一种代入感极强、让你感觉可触摸的历史氛围营造之下，你可以体察那个时代的动荡与不安。
+INFO:root:曾经，两个文明殊死搏斗，仿佛必须有一方被征服。但是我们发现，尽管那个时代伊斯兰势力咄咄逼人，基督教艰难抵抗，但是地理上的格局似乎也就僵持在地中海周围，形成微妙的均衡。无疑，那是个让当时欧洲人容易感到绝望的时代。
+INFO:root:而今天我们发现，尽管没有刀光剑影，相反，倒是很多流离失所的中东难民，由地中海的涌入以及欧洲穆斯林人口比例的增加，引发了新的争议和对未来的不安。这种不安在规模不一，但是明显更加频繁的发生于欧洲的恐怖袭击事件之下，显得更加真实。
+INFO:root:在此背景下，回顾曾经围绕地中海的那从文明冲突，或许能给我们一些思考的养料。
+INFO:root:至少那段岁月之后，欧洲没有完蛋，倒是在融合中进入了大航海时代，形成了欧洲国家的一个世界性扩张的强势。
+INFO:root:周期历史并不见得会重复，但是我依然相信，在不时发生的文明碰撞之中，伴随人类整体文明程度的提高，激烈程度会比以往降低。而在纠结与冲突中，新的平衡总会达到，而置身其中的人在今天也将有更多理性思考和行动的空间。
