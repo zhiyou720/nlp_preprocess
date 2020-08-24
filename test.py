@@ -1,5 +1,5 @@
 from process_main import process, SegAndPunc, SEG_MODEL, PUNC_TAGS, PUNC_MODEL
-
+import time
 processor = SegAndPunc(seg_model=SEG_MODEL, punc_model=PUNC_MODEL, punc_tags=PUNC_TAGS,
                        max_cut_batch=502,
                        max_sent_len=130)
@@ -60,6 +60,9 @@ data = "<div class=\"RichText ztext Post-RichText\">\n <p>对于罗杰克劳利�
        "不见得会重复，但是，我依然相信在不时发生的文明碰撞之中，伴随人类整体文明程度的提高，激烈程度会比以往降低，而在纠结与冲突中，" \
        "新的平衡总会达到，而置身其中的人，在今天也将有更多理性思考和行动的空间。 </p>\n <p></p>\n</div>"
 
-data = process(data, processor=processor, log=True)
+start_time = time.time()
+data = process(data, processor=processor)
+end_time = time.time()
+print("Time used: {}s".format(round(end_time-start_time), 4))
 
 [print(x) for x in data]

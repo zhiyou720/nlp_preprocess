@@ -10,12 +10,14 @@ import json
 import ijson
 import logging
 import argparse
+import unicodedata
 from model import Ner
 from pyparsing import oneOf
 from tokenizer import tokenize
 from dataio import load_txt_data
 from h5_preprocessor import process_html_tag
 from format_processed_data import token2sent
+from paragraph_remake import data_re_combine
 
 logging.basicConfig(filename='logger.log', level=logging.INFO)
 
@@ -214,6 +216,39 @@ class SegAndPunc:
             rest = None
         return cur, rest
 
+    def seg_help_func(self, data):
+        """
+        # TODO temp func need remove
+        # TODO 需要优化循环裁剪策略
+        :param data:
+        :return:
+        """
+        res = []
+        batch, rest_data = self.cut_oov_data(data)
+        if rest_data:
+            while rest_data:
+                cur_data_seg = self.seg_paragraph(batch)
+
+                res.append(cur_data_seg[0])
+                tem_rest = [y for x in cur_data_seg[1:] for y in x]
+
+                rest_data = tem_rest + rest_data
+                batch, rest_data = self.cut_oov_data(rest_data)
+
+            last_seg = self.seg_loop(batch)
+            res = res + last_seg
+        else:
+            res = self.seg_loop(batch)
+
+        return res
+
+    @staticmethod
+    def check_seg_data_valid(data):
+        for para in data:
+            if len(para) > 128:
+                return False
+        return True
+
     def seg_func(self, data):
         """
 
@@ -222,28 +257,17 @@ class SegAndPunc:
         """
         if not data:
             return None
-        res = []
         data_len = len(data)
+        # TODO: 删除128检测
 
-        if self.max_sent_len < data_len:
-            batch, rest_data = self.cut_oov_data(data)
-            if rest_data:
-                while rest_data:
-                    cur_data_seg = self.seg_paragraph(batch)
-
-                    res.append(cur_data_seg[0])
-                    tem_rest = [y for x in cur_data_seg[1:] for y in x]
-
-                    rest_data = tem_rest + rest_data
-                    batch, rest_data = self.cut_oov_data(rest_data)
-
-                last_seg = self.seg_loop(batch)
-                res = res + last_seg
-            else:
-                res = self.seg_loop(batch)
+        if data_len > 512:
+            return self.seg_help_func(data)
         else:
-            res = [data]
-        return res
+            new_data = self.seg_paragraph(data)
+            if self.check_seg_data_valid(new_data):
+                return new_data
+            else:
+                return self.seg_help_func(data)
 
     def punc_func(self, data):
         """
@@ -260,7 +284,7 @@ class SegAndPunc:
         return content
 
 
-def process(data, processor, log=True):
+def process(data, processor):
     """
 
     :param processor: 实例化 SegAndPunc 类
@@ -271,35 +295,33 @@ def process(data, processor, log=True):
     '''Process HTML Data'''
     data = process_html_tag(data)
 
-    if log:
-        logging.info('Process HTML data Done!')
-        for item in data:
-            logging.info(item)
+    data = data_re_combine(data)
 
-    data = ''.join(data)
+    new_data = []
+    for paragraph in data:
 
-    '''Tokenize Data'''
-    data = tokenize(data)
+        '''Tokenize Data'''
+        paragraph = tokenize(paragraph)
 
-    data = processor.seg_func(data)
+        if len(paragraph) > 128:
+            paragraph = processor.seg_func(paragraph)
+            paragraph = processor.punc_func(paragraph)
 
-    data = processor.punc_func(data)
+        else:
+            paragraph = [paragraph]
 
-    data = token2sent(data)
+        paragraph = token2sent(paragraph)
+        for new_paragraph in paragraph:
+            new_data.append(new_paragraph)
 
-    if log:
-        logging.info('Process Seg and Punc data Done!')
-        for item in data:
-            logging.info(item)
-
-    return data
+    return new_data
 
 
 def main(args):
     processor = SegAndPunc(seg_model=SEG_MODEL, punc_model=PUNC_MODEL, punc_tags=PUNC_TAGS,
                            max_cut_batch=args.max_cut_len,
                            max_sent_len=args.max_sent_len)
-    with open(args.data_dir, 'r', encoding='utf-8', errors='ignore') as f:
+    with open(args.data_dir, 'r', encoding='UTF-8-sig', errors='ignore') as f:
         data = ijson.items(f, 'RECORDS.item')
         new_data = []
         i = 0
@@ -307,7 +329,7 @@ def main(args):
         start = time.time()
         while True:
             try:
-                if i < 25200:
+                if i < 25209:
                     _data = data.__next__()
                     i += 1
                     continue
@@ -317,9 +339,10 @@ def main(args):
                 object_id = _data['object_id']
                 content = _data['content']
                 title = _data['title']
-
-                format_content = process(content, processor=processor)
-                exit()
+                if content:
+                    format_content = process(content, processor=processor)
+                else:
+                    format_content = None
                 tmp = {'object_id': object_id, 'title': title, 'format_content': format_content}
                 new_data.append(tmp)
 

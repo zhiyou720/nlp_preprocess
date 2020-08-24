@@ -18,7 +18,7 @@ def process_html_tag(data):
     data = re.sub('\n+', '\n', data)
     data = re.sub(' +', ' ', data)
     data = re.sub('\t', ' ', data)
-    data = [x.strip() for x in data.split('\n') if x]
+    data = [x.strip() for x in data.split('\n') if x.strip()]
     if data:
         return data
     else:

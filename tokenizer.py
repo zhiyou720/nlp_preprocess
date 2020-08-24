@@ -41,7 +41,7 @@ def remove_puncs(data):
 
 def tokenize(data):
     """
-    :param data: str
+    :param data: str # TODO: transform to list data
     :return: list
     """
     if not data:
