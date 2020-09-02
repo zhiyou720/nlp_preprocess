@@ -1,0 +1,552 @@
+2020-08-31 11:19:47,700 - ERROR: [Errno 2] No such file or directory: "'conf/punctuation.dat'"
+Traceback (most recent call last):
+  File "G:/project/branch/VY_NLP_Paragraph_Process/service.py", line 155, in init_sys
+    max_sentence_length=MAX_SENTENCE_LENGTH)
+  File "G:\project\branch\VY_NLP_Paragraph_Process\seg_main.py", line 316, in __init__
+    self.punc_tags = [x for x in load_txt_data(puncs_path)]
+  File "G:\project\branch\VY_NLP_Paragraph_Process\dataio.py", line 49, in load_txt_data
+    file = open(path, 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: "'conf/punctuation.dat'"
+2020-08-31 11:19:47,700 - ERROR: Initialize system failure
+2020-08-31 11:21:23,222 - ERROR: [Errno 2] No such file or directory: "'conf/seg_model'\\model_config.json"
+Traceback (most recent call last):
+  File "G:/project/branch/VY_NLP_Paragraph_Process/service.py", line 155, in init_sys
+    max_sentence_length=MAX_SENTENCE_LENGTH)
+  File "G:\project\branch\VY_NLP_Paragraph_Process\seg_main.py", line 317, in __init__
+    seg_model = Ner(seg_model_path)
+  File "G:\project\branch\VY_NLP_Paragraph_Process\ner_model.py", line 29, in __init__
+    self.model, self.tokenizer, self.model_config = self.load_model(model_dir)
+  File "G:\project\branch\VY_NLP_Paragraph_Process\ner_model.py", line 39, in load_model
+    model_config = json.load(open(model_config))
+FileNotFoundError: [Errno 2] No such file or directory: "'conf/seg_model'\\model_config.json"
+2020-08-31 11:21:23,226 - ERROR: Initialize system failure
+2020-08-31 11:21:52,354 - INFO: loading configuration file conf/seg_model\config.json
+2020-08-31 11:21:52,354 - INFO: Model config {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "directionality": "bidi",
+  "finetuning_task": "ner",
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "num_labels": 7,
+  "output_attentions": false,
+  "output_hidden_states": false,
+  "pad_token_id": 0,
+  "pooler_fc_size": 768,
+  "pooler_num_attention_heads": 12,
+  "pooler_num_fc_layers": 3,
+  "pooler_size_per_head": 128,
+  "pooler_type": "first_token_transform",
+  "pruned_heads": {},
+  "torchscript": false,
+  "type_vocab_size": 2,
+  "vocab_size": 119547
+}
+
+2020-08-31 11:21:52,355 - INFO: loading weights file conf/seg_model\pytorch_model.bin
+2020-08-31 11:21:55,135 - INFO: Model name 'conf/seg_model' not found in model shortcut name list (bert-base-uncased, bert-large-uncased, bert-base-cased, bert-large-cased, bert-base-multilingual-uncased, bert-base-multilingual-cased, bert-base-chinese, bert-base-german-cased, bert-large-uncased-whole-word-masking, bert-large-cased-whole-word-masking, bert-large-uncased-whole-word-masking-finetuned-squad, bert-large-cased-whole-word-masking-finetuned-squad, bert-base-cased-finetuned-mrpc). Assuming 'conf/seg_model' is a path or url to a directory containing tokenizer files.
+2020-08-31 11:21:55,135 - INFO: loading file conf/seg_model\vocab.txt
+2020-08-31 11:21:55,136 - INFO: loading file conf/seg_model\added_tokens.json
+2020-08-31 11:21:55,136 - INFO: loading file conf/seg_model\special_tokens_map.json
+2020-08-31 11:21:55,136 - INFO: loading file conf/seg_model\tokenizer_config.json
+2020-08-31 11:21:55,431 - INFO: loading configuration file conf/punc_model\config.json
+2020-08-31 11:21:55,432 - INFO: Model config {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "directionality": "bidi",
+  "finetuning_task": "ner",
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "num_labels": 20,
+  "output_attentions": false,
+  "output_hidden_states": false,
+  "pad_token_id": 0,
+  "pooler_fc_size": 768,
+  "pooler_num_attention_heads": 12,
+  "pooler_num_fc_layers": 3,
+  "pooler_size_per_head": 128,
+  "pooler_type": "first_token_transform",
+  "pruned_heads": {},
+  "torchscript": false,
+  "type_vocab_size": 2,
+  "vocab_size": 119547
+}
+
+2020-08-31 11:21:55,432 - INFO: loading weights file conf/punc_model\pytorch_model.bin
+2020-08-31 11:21:58,204 - INFO: Model name 'conf/punc_model' not found in model shortcut name list (bert-base-uncased, bert-large-uncased, bert-base-cased, bert-large-cased, bert-base-multilingual-uncased, bert-base-multilingual-cased, bert-base-chinese, bert-base-german-cased, bert-large-uncased-whole-word-masking, bert-large-cased-whole-word-masking, bert-large-uncased-whole-word-masking-finetuned-squad, bert-large-cased-whole-word-masking-finetuned-squad, bert-base-cased-finetuned-mrpc). Assuming 'conf/punc_model' is a path or url to a directory containing tokenizer files.
+2020-08-31 11:21:58,205 - INFO: loading file conf/punc_model\vocab.txt
+2020-08-31 11:21:58,205 - INFO: loading file conf/punc_model\added_tokens.json
+2020-08-31 11:21:58,205 - INFO: loading file conf/punc_model\special_tokens_map.json
+2020-08-31 11:21:58,205 - INFO: loading file conf/punc_model\tokenizer_config.json
+2020-08-31 11:21:58,465 - INFO: Load pretrained SentenceTransformer: distiluse-base-multilingual-cased
+2020-08-31 11:21:58,465 - INFO: Did not find a '/' or '\' in the name. Assume to download model from server.
+2020-08-31 11:21:58,466 - INFO: Load SentenceTransformer from folder: C:\Users\VY/.cache\torch\sentence_transformers\public.ukp.informatik.tu-darmstadt.de_reimers_sentence-transformers_v0.2_distiluse-base-multilingual-cased.zip
+2020-08-31 11:21:58,488 - INFO: loading configuration file C:\Users\VY/.cache\torch\sentence_transformers\public.ukp.informatik.tu-darmstadt.de_reimers_sentence-transformers_v0.2_distiluse-base-multilingual-cased.zip\0_DistilBERT\config.json
+2020-08-31 11:21:58,488 - INFO: Model config DistilBertConfig {
+  "activation": "gelu",
+  "attention_dropout": 0.1,
+  "dim": 768,
+  "dropout": 0.1,
+  "hidden_dim": 3072,
+  "initializer_range": 0.02,
+  "max_position_embeddings": 512,
+  "model_type": "distilbert",
+  "n_heads": 12,
+  "n_layers": 6,
+  "output_hidden_states": true,
+  "output_past": true,
+  "pad_token_id": 0,
+  "qa_dropout": 0.1,
+  "seq_classif_dropout": 0.2,
+  "sinusoidal_pos_embds": false,
+  "tie_weights_": true,
+  "vocab_size": 119547
+}
+
+2020-08-31 11:21:58,489 - INFO: loading weights file C:\Users\VY/.cache\torch\sentence_transformers\public.ukp.informatik.tu-darmstadt.de_reimers_sentence-transformers_v0.2_distiluse-base-multilingual-cased.zip\0_DistilBERT\pytorch_model.bin
+2020-08-31 11:21:59,892 - INFO: All model checkpoint weights were used when initializing DistilBertModel.
+
+2020-08-31 11:21:59,892 - INFO: All the weights of DistilBertModel were initialized from the model checkpoint at C:\Users\VY/.cache\torch\sentence_transformers\public.ukp.informatik.tu-darmstadt.de_reimers_sentence-transformers_v0.2_distiluse-base-multilingual-cased.zip\0_DistilBERT.
+If your task is similar to the task the model of the ckeckpoint was trained on, you can already use DistilBertModel for predictions without further training.
+2020-08-31 11:21:59,892 - INFO: Model name 'C:\Users\VY/.cache\torch\sentence_transformers\public.ukp.informatik.tu-darmstadt.de_reimers_sentence-transformers_v0.2_distiluse-base-multilingual-cased.zip\0_DistilBERT' not found in model shortcut name list (distilbert-base-uncased, distilbert-base-uncased-distilled-squad, distilbert-base-cased, distilbert-base-cased-distilled-squad, distilbert-base-german-cased, distilbert-base-multilingual-cased). Assuming 'C:\Users\VY/.cache\torch\sentence_transformers\public.ukp.informatik.tu-darmstadt.de_reimers_sentence-transformers_v0.2_distiluse-base-multilingual-cased.zip\0_DistilBERT' is a path, a model identifier, or url to a directory containing tokenizer files.
+2020-08-31 11:21:59,892 - INFO: Didn't find file C:\Users\VY/.cache\torch\sentence_transformers\public.ukp.informatik.tu-darmstadt.de_reimers_sentence-transformers_v0.2_distiluse-base-multilingual-cased.zip\0_DistilBERT\tokenizer.json. We won't load it.
+2020-08-31 11:21:59,893 - INFO: loading file C:\Users\VY/.cache\torch\sentence_transformers\public.ukp.informatik.tu-darmstadt.de_reimers_sentence-transformers_v0.2_distiluse-base-multilingual-cased.zip\0_DistilBERT\vocab.txt
+2020-08-31 11:21:59,893 - INFO: loading file C:\Users\VY/.cache\torch\sentence_transformers\public.ukp.informatik.tu-darmstadt.de_reimers_sentence-transformers_v0.2_distiluse-base-multilingual-cased.zip\0_DistilBERT\added_tokens.json
+2020-08-31 11:21:59,893 - INFO: loading file C:\Users\VY/.cache\torch\sentence_transformers\public.ukp.informatik.tu-darmstadt.de_reimers_sentence-transformers_v0.2_distiluse-base-multilingual-cased.zip\0_DistilBERT\special_tokens_map.json
+2020-08-31 11:21:59,893 - INFO: loading file C:\Users\VY/.cache\torch\sentence_transformers\public.ukp.informatik.tu-darmstadt.de_reimers_sentence-transformers_v0.2_distiluse-base-multilingual-cased.zip\0_DistilBERT\tokenizer_config.json
+2020-08-31 11:21:59,893 - INFO: loading file None
+2020-08-31 11:22:00,052 - INFO: Use pytorch device: cuda
+2020-08-31 11:22:00,190 - DEBUG: Building prefix dict from the default dictionary ...
+2020-08-31 11:22:00,190 - DEBUG: Loading model from cache C:\Users\VY\AppData\Local\Temp\jieba.cache
+2020-08-31 11:22:00,683 - DEBUG: Loading model cost 0.493 seconds.
+2020-08-31 11:22:00,684 - DEBUG: Prefix dict has been built successfully.
+2020-08-31 11:22:01,453 - INFO: loading Word2VecKeyedVectors object from conf/punc_model
+2020-08-31 11:22:01,465 - ERROR: [Errno 13] Permission denied: 'conf/punc_model'
+Traceback (most recent call last):
+  File "G:/project/branch/VY_NLP_Paragraph_Process/service.py", line 165, in init_sys
+    random_seed=SEED)
+  File "G:\project\branch\VY_NLP_Paragraph_Process\keyword_main.py", line 45, in __init__
+    tencent_word_embedding = WordEmbedding(tencent_embedding_path)
+  File "G:\project\branch\VY_NLP_Paragraph_Process\tencent_word_embedding.py", line 10, in __init__
+    self.w2v_model = gensim.models.KeyedVectors.load(model_name, mmap='r')
+  File "C:\ProgramData\Anaconda3\envs\torch\lib\site-packages\gensim\models\keyedvectors.py", line 1540, in load
+    model = super(WordEmbeddingsKeyedVectors, cls).load(fname_or_handle, **kwargs)
+  File "C:\ProgramData\Anaconda3\envs\torch\lib\site-packages\gensim\models\keyedvectors.py", line 228, in load
+    return super(BaseKeyedVectors, cls).load(fname_or_handle, **kwargs)
+  File "C:\ProgramData\Anaconda3\envs\torch\lib\site-packages\gensim\utils.py", line 426, in load
+    obj = unpickle(fname)
+  File "C:\ProgramData\Anaconda3\envs\torch\lib\site-packages\gensim\utils.py", line 1381, in unpickle
+    with open(fname, 'rb') as f:
+  File "C:\ProgramData\Anaconda3\envs\torch\lib\site-packages\smart_open\smart_open_lib.py", line 190, in open
+    newline=newline,
+  File "C:\ProgramData\Anaconda3\envs\torch\lib\site-packages\smart_open\smart_open_lib.py", line 364, in _shortcut_open
+    return _builtin_open(local_path, mode, buffering=buffering, **open_kwargs)
+PermissionError: [Errno 13] Permission denied: 'conf/punc_model'
+2020-08-31 11:22:01,465 - ERROR: Initialize system failure
+2020-08-31 11:25:19,708 - INFO: loading configuration file conf/seg_model\config.json
+2020-08-31 11:25:19,708 - INFO: Model config {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "directionality": "bidi",
+  "finetuning_task": "ner",
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "num_labels": 7,
+  "output_attentions": false,
+  "output_hidden_states": false,
+  "pad_token_id": 0,
+  "pooler_fc_size": 768,
+  "pooler_num_attention_heads": 12,
+  "pooler_num_fc_layers": 3,
+  "pooler_size_per_head": 128,
+  "pooler_type": "first_token_transform",
+  "pruned_heads": {},
+  "torchscript": false,
+  "type_vocab_size": 2,
+  "vocab_size": 119547
+}
+
+2020-08-31 11:25:19,709 - INFO: loading weights file conf/seg_model\pytorch_model.bin
+2020-08-31 11:25:22,523 - INFO: Model name 'conf/seg_model' not found in model shortcut name list (bert-base-uncased, bert-large-uncased, bert-base-cased, bert-large-cased, bert-base-multilingual-uncased, bert-base-multilingual-cased, bert-base-chinese, bert-base-german-cased, bert-large-uncased-whole-word-masking, bert-large-cased-whole-word-masking, bert-large-uncased-whole-word-masking-finetuned-squad, bert-large-cased-whole-word-masking-finetuned-squad, bert-base-cased-finetuned-mrpc). Assuming 'conf/seg_model' is a path or url to a directory containing tokenizer files.
+2020-08-31 11:25:22,524 - INFO: loading file conf/seg_model\vocab.txt
+2020-08-31 11:25:22,524 - INFO: loading file conf/seg_model\added_tokens.json
+2020-08-31 11:25:22,524 - INFO: loading file conf/seg_model\special_tokens_map.json
+2020-08-31 11:25:22,524 - INFO: loading file conf/seg_model\tokenizer_config.json
+2020-08-31 11:25:22,826 - INFO: loading configuration file conf/punc_model\config.json
+2020-08-31 11:25:22,827 - INFO: Model config {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "directionality": "bidi",
+  "finetuning_task": "ner",
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "num_labels": 20,
+  "output_attentions": false,
+  "output_hidden_states": false,
+  "pad_token_id": 0,
+  "pooler_fc_size": 768,
+  "pooler_num_attention_heads": 12,
+  "pooler_num_fc_layers": 3,
+  "pooler_size_per_head": 128,
+  "pooler_type": "first_token_transform",
+  "pruned_heads": {},
+  "torchscript": false,
+  "type_vocab_size": 2,
+  "vocab_size": 119547
+}
+
+2020-08-31 11:25:22,827 - INFO: loading weights file conf/punc_model\pytorch_model.bin
+2020-08-31 11:25:25,597 - INFO: Model name 'conf/punc_model' not found in model shortcut name list (bert-base-uncased, bert-large-uncased, bert-base-cased, bert-large-cased, bert-base-multilingual-uncased, bert-base-multilingual-cased, bert-base-chinese, bert-base-german-cased, bert-large-uncased-whole-word-masking, bert-large-cased-whole-word-masking, bert-large-uncased-whole-word-masking-finetuned-squad, bert-large-cased-whole-word-masking-finetuned-squad, bert-base-cased-finetuned-mrpc). Assuming 'conf/punc_model' is a path or url to a directory containing tokenizer files.
+2020-08-31 11:25:25,597 - INFO: loading file conf/punc_model\vocab.txt
+2020-08-31 11:25:25,597 - INFO: loading file conf/punc_model\added_tokens.json
+2020-08-31 11:25:25,598 - INFO: loading file conf/punc_model\special_tokens_map.json
+2020-08-31 11:25:25,598 - INFO: loading file conf/punc_model\tokenizer_config.json
+2020-08-31 11:25:25,867 - INFO: Load pretrained SentenceTransformer: distiluse-base-multilingual-cased
+2020-08-31 11:25:25,867 - INFO: Did not find a '/' or '\' in the name. Assume to download model from server.
+2020-08-31 11:25:25,868 - INFO: Load SentenceTransformer from folder: C:\Users\VY/.cache\torch\sentence_transformers\public.ukp.informatik.tu-darmstadt.de_reimers_sentence-transformers_v0.2_distiluse-base-multilingual-cased.zip
+2020-08-31 11:25:25,881 - INFO: loading configuration file C:\Users\VY/.cache\torch\sentence_transformers\public.ukp.informatik.tu-darmstadt.de_reimers_sentence-transformers_v0.2_distiluse-base-multilingual-cased.zip\0_DistilBERT\config.json
+2020-08-31 11:25:25,881 - INFO: Model config DistilBertConfig {
+  "activation": "gelu",
+  "attention_dropout": 0.1,
+  "dim": 768,
+  "dropout": 0.1,
+  "hidden_dim": 3072,
+  "initializer_range": 0.02,
+  "max_position_embeddings": 512,
+  "model_type": "distilbert",
+  "n_heads": 12,
+  "n_layers": 6,
+  "output_hidden_states": true,
+  "output_past": true,
+  "pad_token_id": 0,
+  "qa_dropout": 0.1,
+  "seq_classif_dropout": 0.2,
+  "sinusoidal_pos_embds": false,
+  "tie_weights_": true,
+  "vocab_size": 119547
+}
+
+2020-08-31 11:25:25,881 - INFO: loading weights file C:\Users\VY/.cache\torch\sentence_transformers\public.ukp.informatik.tu-darmstadt.de_reimers_sentence-transformers_v0.2_distiluse-base-multilingual-cased.zip\0_DistilBERT\pytorch_model.bin
+2020-08-31 11:25:27,300 - INFO: All model checkpoint weights were used when initializing DistilBertModel.
+
+2020-08-31 11:25:27,300 - INFO: All the weights of DistilBertModel were initialized from the model checkpoint at C:\Users\VY/.cache\torch\sentence_transformers\public.ukp.informatik.tu-darmstadt.de_reimers_sentence-transformers_v0.2_distiluse-base-multilingual-cased.zip\0_DistilBERT.
+If your task is similar to the task the model of the ckeckpoint was trained on, you can already use DistilBertModel for predictions without further training.
+2020-08-31 11:25:27,300 - INFO: Model name 'C:\Users\VY/.cache\torch\sentence_transformers\public.ukp.informatik.tu-darmstadt.de_reimers_sentence-transformers_v0.2_distiluse-base-multilingual-cased.zip\0_DistilBERT' not found in model shortcut name list (distilbert-base-uncased, distilbert-base-uncased-distilled-squad, distilbert-base-cased, distilbert-base-cased-distilled-squad, distilbert-base-german-cased, distilbert-base-multilingual-cased). Assuming 'C:\Users\VY/.cache\torch\sentence_transformers\public.ukp.informatik.tu-darmstadt.de_reimers_sentence-transformers_v0.2_distiluse-base-multilingual-cased.zip\0_DistilBERT' is a path, a model identifier, or url to a directory containing tokenizer files.
+2020-08-31 11:25:27,301 - INFO: Didn't find file C:\Users\VY/.cache\torch\sentence_transformers\public.ukp.informatik.tu-darmstadt.de_reimers_sentence-transformers_v0.2_distiluse-base-multilingual-cased.zip\0_DistilBERT\tokenizer.json. We won't load it.
+2020-08-31 11:25:27,301 - INFO: loading file C:\Users\VY/.cache\torch\sentence_transformers\public.ukp.informatik.tu-darmstadt.de_reimers_sentence-transformers_v0.2_distiluse-base-multilingual-cased.zip\0_DistilBERT\vocab.txt
+2020-08-31 11:25:27,301 - INFO: loading file C:\Users\VY/.cache\torch\sentence_transformers\public.ukp.informatik.tu-darmstadt.de_reimers_sentence-transformers_v0.2_distiluse-base-multilingual-cased.zip\0_DistilBERT\added_tokens.json
+2020-08-31 11:25:27,301 - INFO: loading file C:\Users\VY/.cache\torch\sentence_transformers\public.ukp.informatik.tu-darmstadt.de_reimers_sentence-transformers_v0.2_distiluse-base-multilingual-cased.zip\0_DistilBERT\special_tokens_map.json
+2020-08-31 11:25:27,301 - INFO: loading file C:\Users\VY/.cache\torch\sentence_transformers\public.ukp.informatik.tu-darmstadt.de_reimers_sentence-transformers_v0.2_distiluse-base-multilingual-cased.zip\0_DistilBERT\tokenizer_config.json
+2020-08-31 11:25:27,301 - INFO: loading file None
+2020-08-31 11:25:27,426 - INFO: Use pytorch device: cuda
+2020-08-31 11:25:27,556 - DEBUG: Building prefix dict from the default dictionary ...
+2020-08-31 11:25:27,556 - DEBUG: Loading model from cache C:\Users\VY\AppData\Local\Temp\jieba.cache
+2020-08-31 11:25:28,056 - DEBUG: Loading model cost 0.500 seconds.
+2020-08-31 11:25:28,056 - DEBUG: Prefix dict has been built successfully.
+2020-08-31 11:25:28,815 - INFO: loading Word2VecKeyedVectors object from conf/Tencent_AILab_ChineseEmbedding/Tencent_AILab_ChineseEmbedding.bin
+2020-08-31 11:25:40,464 - INFO: loading vectors from conf/Tencent_AILab_ChineseEmbedding/Tencent_AILab_ChineseEmbedding.bin.vectors.npy with mmap=r
+2020-08-31 11:25:40,584 - INFO: setting ignored attribute vectors_norm to None
+2020-08-31 11:25:40,584 - INFO: loaded conf/Tencent_AILab_ChineseEmbedding/Tencent_AILab_ChineseEmbedding.bin
+2020-08-31 11:25:40,584 - INFO: Init helper success
+2020-08-31 11:25:40,584 - INFO: Initialize system success
+2020-08-31 11:25:40,585 - INFO: Run server
+2020-08-31 11:25:40,598 - INFO:  * Running on http://0.0.0.0:10080/ (Press CTRL+C to quit)
+2020-08-31 11:28:22,973 - INFO: loading configuration file conf/seg_model\config.json
+2020-08-31 11:28:22,973 - INFO: Model config {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "directionality": "bidi",
+  "finetuning_task": "ner",
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "num_labels": 7,
+  "output_attentions": false,
+  "output_hidden_states": false,
+  "pad_token_id": 0,
+  "pooler_fc_size": 768,
+  "pooler_num_attention_heads": 12,
+  "pooler_num_fc_layers": 3,
+  "pooler_size_per_head": 128,
+  "pooler_type": "first_token_transform",
+  "pruned_heads": {},
+  "torchscript": false,
+  "type_vocab_size": 2,
+  "vocab_size": 119547
+}
+
+2020-08-31 11:28:22,974 - INFO: loading weights file conf/seg_model\pytorch_model.bin
+2020-08-31 11:28:25,759 - INFO: Model name 'conf/seg_model' not found in model shortcut name list (bert-base-uncased, bert-large-uncased, bert-base-cased, bert-large-cased, bert-base-multilingual-uncased, bert-base-multilingual-cased, bert-base-chinese, bert-base-german-cased, bert-large-uncased-whole-word-masking, bert-large-cased-whole-word-masking, bert-large-uncased-whole-word-masking-finetuned-squad, bert-large-cased-whole-word-masking-finetuned-squad, bert-base-cased-finetuned-mrpc). Assuming 'conf/seg_model' is a path or url to a directory containing tokenizer files.
+2020-08-31 11:28:25,759 - INFO: loading file conf/seg_model\vocab.txt
+2020-08-31 11:28:25,760 - INFO: loading file conf/seg_model\added_tokens.json
+2020-08-31 11:28:25,760 - INFO: loading file conf/seg_model\special_tokens_map.json
+2020-08-31 11:28:25,760 - INFO: loading file conf/seg_model\tokenizer_config.json
+2020-08-31 11:28:26,061 - INFO: loading configuration file conf/punc_model\config.json
+2020-08-31 11:28:26,061 - INFO: Model config {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "directionality": "bidi",
+  "finetuning_task": "ner",
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "num_labels": 20,
+  "output_attentions": false,
+  "output_hidden_states": false,
+  "pad_token_id": 0,
+  "pooler_fc_size": 768,
+  "pooler_num_attention_heads": 12,
+  "pooler_num_fc_layers": 3,
+  "pooler_size_per_head": 128,
+  "pooler_type": "first_token_transform",
+  "pruned_heads": {},
+  "torchscript": false,
+  "type_vocab_size": 2,
+  "vocab_size": 119547
+}
+
+2020-08-31 11:28:26,061 - INFO: loading weights file conf/punc_model\pytorch_model.bin
+2020-08-31 11:28:28,853 - INFO: Model name 'conf/punc_model' not found in model shortcut name list (bert-base-uncased, bert-large-uncased, bert-base-cased, bert-large-cased, bert-base-multilingual-uncased, bert-base-multilingual-cased, bert-base-chinese, bert-base-german-cased, bert-large-uncased-whole-word-masking, bert-large-cased-whole-word-masking, bert-large-uncased-whole-word-masking-finetuned-squad, bert-large-cased-whole-word-masking-finetuned-squad, bert-base-cased-finetuned-mrpc). Assuming 'conf/punc_model' is a path or url to a directory containing tokenizer files.
+2020-08-31 11:28:28,854 - INFO: loading file conf/punc_model\vocab.txt
+2020-08-31 11:28:28,854 - INFO: loading file conf/punc_model\added_tokens.json
+2020-08-31 11:28:28,854 - INFO: loading file conf/punc_model\special_tokens_map.json
+2020-08-31 11:28:28,854 - INFO: loading file conf/punc_model\tokenizer_config.json
+2020-08-31 11:28:29,123 - INFO: Load pretrained SentenceTransformer: distiluse-base-multilingual-cased
+2020-08-31 11:28:29,123 - INFO: Did not find a '/' or '\' in the name. Assume to download model from server.
+2020-08-31 11:28:29,123 - INFO: Load SentenceTransformer from folder: C:\Users\VY/.cache\torch\sentence_transformers\public.ukp.informatik.tu-darmstadt.de_reimers_sentence-transformers_v0.2_distiluse-base-multilingual-cased.zip
+2020-08-31 11:28:29,134 - INFO: loading configuration file C:\Users\VY/.cache\torch\sentence_transformers\public.ukp.informatik.tu-darmstadt.de_reimers_sentence-transformers_v0.2_distiluse-base-multilingual-cased.zip\0_DistilBERT\config.json
+2020-08-31 11:28:29,135 - INFO: Model config DistilBertConfig {
+  "activation": "gelu",
+  "attention_dropout": 0.1,
+  "dim": 768,
+  "dropout": 0.1,
+  "hidden_dim": 3072,
+  "initializer_range": 0.02,
+  "max_position_embeddings": 512,
+  "model_type": "distilbert",
+  "n_heads": 12,
+  "n_layers": 6,
+  "output_hidden_states": true,
+  "output_past": true,
+  "pad_token_id": 0,
+  "qa_dropout": 0.1,
+  "seq_classif_dropout": 0.2,
+  "sinusoidal_pos_embds": false,
+  "tie_weights_": true,
+  "vocab_size": 119547
+}
+
+2020-08-31 11:28:29,135 - INFO: loading weights file C:\Users\VY/.cache\torch\sentence_transformers\public.ukp.informatik.tu-darmstadt.de_reimers_sentence-transformers_v0.2_distiluse-base-multilingual-cased.zip\0_DistilBERT\pytorch_model.bin
+2020-08-31 11:28:30,539 - INFO: All model checkpoint weights were used when initializing DistilBertModel.
+
+2020-08-31 11:28:30,539 - INFO: All the weights of DistilBertModel were initialized from the model checkpoint at C:\Users\VY/.cache\torch\sentence_transformers\public.ukp.informatik.tu-darmstadt.de_reimers_sentence-transformers_v0.2_distiluse-base-multilingual-cased.zip\0_DistilBERT.
+If your task is similar to the task the model of the ckeckpoint was trained on, you can already use DistilBertModel for predictions without further training.
+2020-08-31 11:28:30,540 - INFO: Model name 'C:\Users\VY/.cache\torch\sentence_transformers\public.ukp.informatik.tu-darmstadt.de_reimers_sentence-transformers_v0.2_distiluse-base-multilingual-cased.zip\0_DistilBERT' not found in model shortcut name list (distilbert-base-uncased, distilbert-base-uncased-distilled-squad, distilbert-base-cased, distilbert-base-cased-distilled-squad, distilbert-base-german-cased, distilbert-base-multilingual-cased). Assuming 'C:\Users\VY/.cache\torch\sentence_transformers\public.ukp.informatik.tu-darmstadt.de_reimers_sentence-transformers_v0.2_distiluse-base-multilingual-cased.zip\0_DistilBERT' is a path, a model identifier, or url to a directory containing tokenizer files.
+2020-08-31 11:28:30,540 - INFO: Didn't find file C:\Users\VY/.cache\torch\sentence_transformers\public.ukp.informatik.tu-darmstadt.de_reimers_sentence-transformers_v0.2_distiluse-base-multilingual-cased.zip\0_DistilBERT\tokenizer.json. We won't load it.
+2020-08-31 11:28:30,540 - INFO: loading file C:\Users\VY/.cache\torch\sentence_transformers\public.ukp.informatik.tu-darmstadt.de_reimers_sentence-transformers_v0.2_distiluse-base-multilingual-cased.zip\0_DistilBERT\vocab.txt
+2020-08-31 11:28:30,540 - INFO: loading file C:\Users\VY/.cache\torch\sentence_transformers\public.ukp.informatik.tu-darmstadt.de_reimers_sentence-transformers_v0.2_distiluse-base-multilingual-cased.zip\0_DistilBERT\added_tokens.json
+2020-08-31 11:28:30,540 - INFO: loading file C:\Users\VY/.cache\torch\sentence_transformers\public.ukp.informatik.tu-darmstadt.de_reimers_sentence-transformers_v0.2_distiluse-base-multilingual-cased.zip\0_DistilBERT\special_tokens_map.json
+2020-08-31 11:28:30,541 - INFO: loading file C:\Users\VY/.cache\torch\sentence_transformers\public.ukp.informatik.tu-darmstadt.de_reimers_sentence-transformers_v0.2_distiluse-base-multilingual-cased.zip\0_DistilBERT\tokenizer_config.json
+2020-08-31 11:28:30,541 - INFO: loading file None
+2020-08-31 11:28:30,661 - INFO: Use pytorch device: cuda
+2020-08-31 11:28:30,799 - DEBUG: Building prefix dict from the default dictionary ...
+2020-08-31 11:28:30,799 - DEBUG: Loading model from cache C:\Users\VY\AppData\Local\Temp\jieba.cache
+2020-08-31 11:28:31,295 - DEBUG: Loading model cost 0.496 seconds.
+2020-08-31 11:28:31,295 - DEBUG: Prefix dict has been built successfully.
+2020-08-31 11:28:32,056 - INFO: loading Word2VecKeyedVectors object from conf/Tencent_AILab_ChineseEmbedding/Tencent_AILab_ChineseEmbedding.bin
+2020-08-31 11:28:43,651 - INFO: loading vectors from conf/Tencent_AILab_ChineseEmbedding/Tencent_AILab_ChineseEmbedding.bin.vectors.npy with mmap=r
+2020-08-31 11:28:43,758 - INFO: setting ignored attribute vectors_norm to None
+2020-08-31 11:28:43,758 - INFO: loaded conf/Tencent_AILab_ChineseEmbedding/Tencent_AILab_ChineseEmbedding.bin
+2020-08-31 11:28:43,758 - INFO: Init helper success
+2020-08-31 11:28:43,758 - INFO: Initialize system success
+2020-08-31 11:28:43,759 - INFO: Run server
+2020-08-31 11:28:43,765 - INFO:  * Running on http://0.0.0.0:1324/ (Press CTRL+C to quit)
+2020-08-31 11:31:21,393 - INFO: loading configuration file conf/seg_model\config.json
+2020-08-31 11:31:21,393 - INFO: Model config {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "directionality": "bidi",
+  "finetuning_task": "ner",
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "num_labels": 7,
+  "output_attentions": false,
+  "output_hidden_states": false,
+  "pad_token_id": 0,
+  "pooler_fc_size": 768,
+  "pooler_num_attention_heads": 12,
+  "pooler_num_fc_layers": 3,
+  "pooler_size_per_head": 128,
+  "pooler_type": "first_token_transform",
+  "pruned_heads": {},
+  "torchscript": false,
+  "type_vocab_size": 2,
+  "vocab_size": 119547
+}
+
+2020-08-31 11:31:21,394 - INFO: loading weights file conf/seg_model\pytorch_model.bin
+2020-08-31 11:31:24,203 - INFO: Model name 'conf/seg_model' not found in model shortcut name list (bert-base-uncased, bert-large-uncased, bert-base-cased, bert-large-cased, bert-base-multilingual-uncased, bert-base-multilingual-cased, bert-base-chinese, bert-base-german-cased, bert-large-uncased-whole-word-masking, bert-large-cased-whole-word-masking, bert-large-uncased-whole-word-masking-finetuned-squad, bert-large-cased-whole-word-masking-finetuned-squad, bert-base-cased-finetuned-mrpc). Assuming 'conf/seg_model' is a path or url to a directory containing tokenizer files.
+2020-08-31 11:31:24,203 - INFO: loading file conf/seg_model\vocab.txt
+2020-08-31 11:31:24,203 - INFO: loading file conf/seg_model\added_tokens.json
+2020-08-31 11:31:24,203 - INFO: loading file conf/seg_model\special_tokens_map.json
+2020-08-31 11:31:24,204 - INFO: loading file conf/seg_model\tokenizer_config.json
+2020-08-31 11:31:24,521 - INFO: loading configuration file conf/punc_model\config.json
+2020-08-31 11:31:24,521 - INFO: Model config {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "directionality": "bidi",
+  "finetuning_task": "ner",
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "num_labels": 20,
+  "output_attentions": false,
+  "output_hidden_states": false,
+  "pad_token_id": 0,
+  "pooler_fc_size": 768,
+  "pooler_num_attention_heads": 12,
+  "pooler_num_fc_layers": 3,
+  "pooler_size_per_head": 128,
+  "pooler_type": "first_token_transform",
+  "pruned_heads": {},
+  "torchscript": false,
+  "type_vocab_size": 2,
+  "vocab_size": 119547
+}
+
+2020-08-31 11:31:24,521 - INFO: loading weights file conf/punc_model\pytorch_model.bin
+2020-08-31 11:31:27,316 - INFO: Model name 'conf/punc_model' not found in model shortcut name list (bert-base-uncased, bert-large-uncased, bert-base-cased, bert-large-cased, bert-base-multilingual-uncased, bert-base-multilingual-cased, bert-base-chinese, bert-base-german-cased, bert-large-uncased-whole-word-masking, bert-large-cased-whole-word-masking, bert-large-uncased-whole-word-masking-finetuned-squad, bert-large-cased-whole-word-masking-finetuned-squad, bert-base-cased-finetuned-mrpc). Assuming 'conf/punc_model' is a path or url to a directory containing tokenizer files.
+2020-08-31 11:31:27,316 - INFO: loading file conf/punc_model\vocab.txt
+2020-08-31 11:31:27,316 - INFO: loading file conf/punc_model\added_tokens.json
+2020-08-31 11:31:27,316 - INFO: loading file conf/punc_model\special_tokens_map.json
+2020-08-31 11:31:27,316 - INFO: loading file conf/punc_model\tokenizer_config.json
+2020-08-31 11:31:27,593 - INFO: Load pretrained SentenceTransformer: distiluse-base-multilingual-cased
+2020-08-31 11:31:27,593 - INFO: Did not find a '/' or '\' in the name. Assume to download model from server.
+2020-08-31 11:31:27,593 - INFO: Load SentenceTransformer from folder: C:\Users\VY/.cache\torch\sentence_transformers\public.ukp.informatik.tu-darmstadt.de_reimers_sentence-transformers_v0.2_distiluse-base-multilingual-cased.zip
+2020-08-31 11:31:27,605 - INFO: loading configuration file C:\Users\VY/.cache\torch\sentence_transformers\public.ukp.informatik.tu-darmstadt.de_reimers_sentence-transformers_v0.2_distiluse-base-multilingual-cased.zip\0_DistilBERT\config.json
+2020-08-31 11:31:27,606 - INFO: Model config DistilBertConfig {
+  "activation": "gelu",
+  "attention_dropout": 0.1,
+  "dim": 768,
+  "dropout": 0.1,
+  "hidden_dim": 3072,
+  "initializer_range": 0.02,
+  "max_position_embeddings": 512,
+  "model_type": "distilbert",
+  "n_heads": 12,
+  "n_layers": 6,
+  "output_hidden_states": true,
+  "output_past": true,
+  "pad_token_id": 0,
+  "qa_dropout": 0.1,
+  "seq_classif_dropout": 0.2,
+  "sinusoidal_pos_embds": false,
+  "tie_weights_": true,
+  "vocab_size": 119547
+}
+
+2020-08-31 11:31:27,606 - INFO: loading weights file C:\Users\VY/.cache\torch\sentence_transformers\public.ukp.informatik.tu-darmstadt.de_reimers_sentence-transformers_v0.2_distiluse-base-multilingual-cased.zip\0_DistilBERT\pytorch_model.bin
+2020-08-31 11:31:28,995 - INFO: All model checkpoint weights were used when initializing DistilBertModel.
+
+2020-08-31 11:31:28,995 - INFO: All the weights of DistilBertModel were initialized from the model checkpoint at C:\Users\VY/.cache\torch\sentence_transformers\public.ukp.informatik.tu-darmstadt.de_reimers_sentence-transformers_v0.2_distiluse-base-multilingual-cased.zip\0_DistilBERT.
+If your task is similar to the task the model of the ckeckpoint was trained on, you can already use DistilBertModel for predictions without further training.
+2020-08-31 11:31:28,996 - INFO: Model name 'C:\Users\VY/.cache\torch\sentence_transformers\public.ukp.informatik.tu-darmstadt.de_reimers_sentence-transformers_v0.2_distiluse-base-multilingual-cased.zip\0_DistilBERT' not found in model shortcut name list (distilbert-base-uncased, distilbert-base-uncased-distilled-squad, distilbert-base-cased, distilbert-base-cased-distilled-squad, distilbert-base-german-cased, distilbert-base-multilingual-cased). Assuming 'C:\Users\VY/.cache\torch\sentence_transformers\public.ukp.informatik.tu-darmstadt.de_reimers_sentence-transformers_v0.2_distiluse-base-multilingual-cased.zip\0_DistilBERT' is a path, a model identifier, or url to a directory containing tokenizer files.
+2020-08-31 11:31:28,996 - INFO: Didn't find file C:\Users\VY/.cache\torch\sentence_transformers\public.ukp.informatik.tu-darmstadt.de_reimers_sentence-transformers_v0.2_distiluse-base-multilingual-cased.zip\0_DistilBERT\tokenizer.json. We won't load it.
+2020-08-31 11:31:28,997 - INFO: loading file C:\Users\VY/.cache\torch\sentence_transformers\public.ukp.informatik.tu-darmstadt.de_reimers_sentence-transformers_v0.2_distiluse-base-multilingual-cased.zip\0_DistilBERT\vocab.txt
+2020-08-31 11:31:28,997 - INFO: loading file C:\Users\VY/.cache\torch\sentence_transformers\public.ukp.informatik.tu-darmstadt.de_reimers_sentence-transformers_v0.2_distiluse-base-multilingual-cased.zip\0_DistilBERT\added_tokens.json
+2020-08-31 11:31:28,997 - INFO: loading file C:\Users\VY/.cache\torch\sentence_transformers\public.ukp.informatik.tu-darmstadt.de_reimers_sentence-transformers_v0.2_distiluse-base-multilingual-cased.zip\0_DistilBERT\special_tokens_map.json
+2020-08-31 11:31:28,997 - INFO: loading file C:\Users\VY/.cache\torch\sentence_transformers\public.ukp.informatik.tu-darmstadt.de_reimers_sentence-transformers_v0.2_distiluse-base-multilingual-cased.zip\0_DistilBERT\tokenizer_config.json
+2020-08-31 11:31:28,997 - INFO: loading file None
+2020-08-31 11:31:29,132 - INFO: Use pytorch device: cuda
+2020-08-31 11:31:29,268 - DEBUG: Building prefix dict from the default dictionary ...
+2020-08-31 11:31:29,268 - DEBUG: Loading model from cache C:\Users\VY\AppData\Local\Temp\jieba.cache
+2020-08-31 11:31:29,768 - DEBUG: Loading model cost 0.500 seconds.
+2020-08-31 11:31:29,768 - DEBUG: Prefix dict has been built successfully.
+2020-08-31 11:31:30,527 - INFO: loading Word2VecKeyedVectors object from conf/Tencent_AILab_ChineseEmbedding/Tencent_AILab_ChineseEmbedding.bin
+2020-08-31 11:31:42,163 - INFO: loading vectors from conf/Tencent_AILab_ChineseEmbedding/Tencent_AILab_ChineseEmbedding.bin.vectors.npy with mmap=r
+2020-08-31 11:31:42,269 - INFO: setting ignored attribute vectors_norm to None
+2020-08-31 11:31:42,269 - INFO: loaded conf/Tencent_AILab_ChineseEmbedding/Tencent_AILab_ChineseEmbedding.bin
+2020-08-31 11:31:42,269 - INFO: Init helper success
+2020-08-31 11:31:42,269 - INFO: Initialize system success
+2020-08-31 11:31:42,270 - INFO: Run server
+2020-08-31 11:31:42,277 - INFO:  * Running on http://0.0.0.0:10080/ (Press CTRL+C to quit)
+2020-08-31 11:32:14,267 - INFO: 127.0.0.1 - - [31/Aug/2020 11:32:14] "[37mGET /heartbeat HTTP/1.1[0m" 200 -
+2020-08-31 11:32:14,295 - ERROR: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2020-08-31 11:32:14,295 - INFO: 127.0.0.1 - - [31/Aug/2020 11:32:14] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -

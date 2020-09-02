@@ -128,6 +128,7 @@ class Ner:
         labels = [(self.label_map[label], confidence) for label, confidence in logits]
         words = word_tokenize(text)
         assert len(labels) == len(words)
+
         output = [{"word": word, "tag": label, "confidence": confidence} for word, (label, confidence) in
                   zip(words, labels)]
         return output

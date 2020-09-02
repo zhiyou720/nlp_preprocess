@@ -16,11 +16,7 @@ bin-release/
 # Project files, i.e. `.project`, `.actionScriptProperties` and `.flexProperties`
 # should NOT be excluded as they contain compiler settings and other important
 # information for Eclipse / Flash Builder.
-data
-bk
-model/punc_model/.*
-model/seg_model/.*
-model/nlp_preprocess_model.zip
-res
 __pycache__
 .idea
+
+bk

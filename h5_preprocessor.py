@@ -1,6 +1,7 @@
 import re
 from bs4 import BeautifulSoup
 import unicodedata
+import control_characters
 
 
 def process_html_tag(data):
@@ -14,7 +15,7 @@ def process_html_tag(data):
     soup = BeautifulSoup(data, 'html.parser')
     data = soup.get_text()
     data = unicodedata.normalize('NFKC', data)
-
+    data = control_characters.remove(data)
     data = re.sub('\n+', '\n', data)
     data = re.sub(' +', ' ', data)
     data = re.sub('\t', ' ', data)

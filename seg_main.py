@@ -1,39 +1,28 @@
 # Tokenizer 中的标点必须与标点符号预测模型中的需要预测的标点符号一致
 # SegAndPunc 类中的标点必须与标点符号预测模型中的需要预测的标点符号一致
 # 不计算组合标签
-# TODO: 使用TODO标记 现有标点符号预测模型还需要更新：1. 使用更多更好的数据。 2. 使用括号类标签使用CRF提高准确率 3. 组合标签不足
+# TODO: 使用TODO标记 现有标点符号预测模型还需要更新：1. 使用更多更好的数据。 2. 使用括号类标签使用CRF提高准确率 （是否有必要将模型复杂化）
+# TODO: 对于组合标签，现采取忽略
 
 import re
 import time
 import torch
 import json
 import ijson
-import logging
 import argparse
-import unicodedata
-from model import Ner
+from ner_model import Ner
 from pyparsing import oneOf
-from tokenizer import tokenize
 from dataio import load_txt_data
-from h5_preprocessor import process_html_tag
-from format_processed_data import token2sent
+from seg_tokenizer import tokenize
 from paragraph_remake import data_re_combine
-
-logging.basicConfig(filename='logger.log', level=logging.INFO)
-
-DEVICE = torch.device('cuda')
-PUNC_TAGS = [x.split('\t')[1] for x in load_txt_data('model/config/punctuation.dat')]
-# TODO: 不再需要第一列
-print('LOAD MODEL')
-SEG_MODEL = Ner('model/seg_model')
-PUNC_MODEL = Ner('model/punc_model')
-print('FINISHED LOAD')
+from format_processed_data import token2sent
+from h5_preprocessor import process_html_tag
 
 
 class SegAndPunc:
     def __init__(self, seg_model, punc_model, punc_tags,
                  max_cut_batch=502,
-                 max_sent_len=130
+                 max_sent_len=130,
                  ):
 
         self.seg_model = seg_model
@@ -63,8 +52,8 @@ class SegAndPunc:
 
     @staticmethod
     def mark_conflict_symbol(data):
-        data = re.sub('#', '@shapmask@', data)
-        data = re.sub('\$', '@dollarmask@', data)
+        data = re.sub('#', 'shap-mask', data)
+        data = re.sub('\$', 'dollar-mask', data)
         return data
 
     @staticmethod
@@ -75,8 +64,9 @@ class SegAndPunc:
         """
         for i in range(len(data)):
             for j in range(len(data)):
-                data[i][j] = re.sub('@dollarmask@', '$', data[i])
-                data[i][j] = re.sub('@shapmask@', '#', data[i])
+                data[i][j] = re.sub('dollar-mask', '$', data[i][j])
+                data[i][j] = re.sub('shap-mask', '#', data[i][j])
+
         return data
 
     @staticmethod
@@ -281,6 +271,7 @@ class SegAndPunc:
         for sentence in data:
             sent = self.tag_punc(sentence)
             content.append(sent)
+
         return content
 
 
@@ -296,28 +287,57 @@ def process(data, processor):
     data = process_html_tag(data)
 
     data = data_re_combine(data)
-
     new_data = []
     for paragraph in data:
 
         '''Tokenize Data'''
-        paragraph = tokenize(paragraph)
+        paragraph = tokenize(paragraph, processor.punc_tags)
+        if not paragraph:
+            # TODO: 存在空段，直接跳过
+            continue
 
         if len(paragraph) > 128:
             paragraph = processor.seg_func(paragraph)
-            paragraph = processor.punc_func(paragraph)
-
         else:
             paragraph = [paragraph]
 
+        paragraph = processor.punc_func(paragraph)
+
         paragraph = token2sent(paragraph)
+
         for new_paragraph in paragraph:
             new_data.append(new_paragraph)
 
-    return new_data
+    if new_data:
+        return new_data
+    else:
+        return None
+
+
+class Cutter:
+    def __init__(self,
+                 puncs_path,
+                 seg_model_path,
+                 punc_model_path,
+                 max_cut_batch=502,
+                 max_sentence_length=128
+                 ):
+        self.punc_tags = [x for x in load_txt_data(puncs_path)]
+        seg_model = Ner(seg_model_path)
+        punc_model = Ner(punc_model_path)
+        self.seg_processor = SegAndPunc(seg_model=seg_model, punc_model=punc_model, punc_tags=self.punc_tags,
+                                        max_cut_batch=max_cut_batch,
+                                        max_sent_len=max_sentence_length)
 
 
 def main(args):
+    PUNC_TAGS = [x for x in load_txt_data('conf/punctuation.dat')]
+
+    print('LOAD MODEL')
+    SEG_MODEL = Ner('conf/seg_model')
+    PUNC_MODEL = Ner('conf/punc_model')
+    print('FINISHED LOAD')
+
     processor = SegAndPunc(seg_model=SEG_MODEL, punc_model=PUNC_MODEL, punc_tags=PUNC_TAGS,
                            max_cut_batch=args.max_cut_len,
                            max_sent_len=args.max_sent_len)
@@ -374,12 +394,5 @@ def main(args):
 
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--data_dir", default='data/db_data.1.json', type=str)
-    parser.add_argument("--res_dir", default='res/db_data_res.{}.json', type=str)
-    parser.add_argument("--punc_conf", default='src/config/punctuation.dat', type=str)
-    parser.add_argument("--seg_conf", default='src/config/segmentation.dat', type=str)
-    parser.add_argument("--max_sent_len", default=130, type=int, help="maximum sentence length")
-    parser.add_argument("--max_cut_len", default=502, type=int, help="maximum cut length")
-    _args = parser.parse_args()
-    main(_args)
+   pass
+

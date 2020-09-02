@@ -1,0 +1,12 @@
+*
+conf.zip
+!punc_model
+!seg_model
+!sif_model
+!Tencent_AILab_ChineseEmbedding
+!.gitignore
+!service.conf
+!jieba_considered_tags.txt
+!punctuation.dat
+!stopwords.txt
+!user_dict.txt
