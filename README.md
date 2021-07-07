@@ -8,3 +8,6 @@
 model目录下的两个模型文件
 
 链接: https://pan.baidu.com/s/1Dct2xWRdqtPsR36WtBfKUQ  密码: lm34
+
+模型训练见repo：
+https://github.com/zhiyou720/chinese_bert_ner
